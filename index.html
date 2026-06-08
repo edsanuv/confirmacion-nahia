@@ -174,14 +174,77 @@ opacity:.08;pointer-events:none;
     letter-spacing:.15em;
     text-transform:uppercase;
 }
+
+.scroll-indicator{
+    margin-top:20px;
+    font-size:2rem;
+    color:#4A6B41;
+    animation: bounceArrow 2s infinite;
+}
+
+.scroll-indicator i{
+    filter: drop-shadow(0 0 10px rgba(255,255,255,.8));
+}
+
+@keyframes bounceArrow{
+    0%,100%{
+        transform:translateY(0);
+        opacity:.6;
+    }
+    50%{
+        transform:translateY(15px);
+        opacity:1;
+    }
+}
 </style>
 
     </head>
     <body
         class="relative min-h-screen overflow-x-hidden flex flex-col justify-center items-center pb-20">
         <!-- Música -->
+        <!-- Pantalla de bienvenida -->
+        <div id="welcomeScreen"
+            class="fixed inset-0 z-[9999] flex flex-col items-center justify-center text-center px-6"
+            style="
+        background: radial-gradient(circle at center,#dbe8d5 0%,#c3d5b9 100%);
+        backdrop-filter: blur(10px);
+        transition: all .8s ease;
+     ">
+
+            <div class="space-y-6">
+
+                <div class="text-7xl animate-bounce">
+                    🕊️
+                </div>
+
+                <h1
+                    class="font-serif-elegant text-5xl md:text-6xl text-sage-900">
+                    Mi Confirmación
+                </h1>
+
+                <h2 class="text-3xl md:text-4xl text-sage-800">
+                    Nahia Zelig
+                </h2>
+
+                <p class="italic text-sage-800">
+                    14 de Junio de 2026
+                </p>
+
+                <button id="enterBtn"
+                    class="glass-button px-8 py-4 rounded-full text-sage-900 font-semibold text-lg hover:scale-105 transition-all duration-300">
+                    ✨ Abrir Invitación ✨
+                </button>
+
+                <p class="text-xs text-sage-800 opacity-70">
+                    Toca para activar la música
+                </p>
+
+            </div>
+
+        </div>
         <audio id="bgMusic" loop>
-            <source src="./cancion.mp3" type="audio/mpeg">
+            <source src="./cancion.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
         </audio>
 
         <button id="musicBtn"
@@ -286,6 +349,9 @@ opacity:.08;pointer-events:none;
             <div
                 class="text-sage-900 tracking-widest font-semibold text-lg py-4">
                 14 DE JUNIO DE 2026 09:00 AM
+            </div>
+            <div class="scroll-indicator">
+                <i class="fa-solid fa-chevron-down"></i>
             </div>
             <div class="mt-6">
                 <p
@@ -425,5 +491,46 @@ function updateCountdown(){
 
 setInterval(updateCountdown,1000);
 updateCountdown();
+</script>
+<script>
+
+const enterBtn = document.getElementById("enterBtn");
+const welcomeScreen = document.getElementById("welcomeScreen");
+const bgMusic = document.getElementById("bgMusic");
+
+enterBtn.addEventListener("click", async () => {
+
+    try {
+
+        bgMusic.volume = 0;
+        await bgMusic.play();
+
+        let vol = 0;
+
+        const fade = setInterval(() => {
+
+            vol += 0.02;
+
+            if(vol >= 0.4){
+                vol = 0.4;
+                clearInterval(fade);
+            }
+
+            bgMusic.volume = vol;
+
+        },100);
+
+    } catch(error) {
+        console.log(error);
+    }
+
+    welcomeScreen.style.opacity = "0";
+
+    setTimeout(() => {
+        welcomeScreen.style.display = "none";
+    }, 800);
+
+});
+
 </script>
     </body></html>
