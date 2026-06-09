@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 
 <html lang="es"><head>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+            rel="stylesheet">
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <!-- SEO Básico -->
@@ -30,6 +33,7 @@
             src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
         <style data-purpose="custom-fonts">
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+    
     
     body {
       font-family: 'Lato', sans-serif;
@@ -203,6 +207,44 @@ opacity:.08;pointer-events:none;
         opacity:1;
     }
 }
+.gold-name{
+    font-family:'Great Vibes',cursive;
+
+    background:linear-gradient(
+        180deg,
+        #fff9d7 0%,
+        #ffe89c 15%,
+        #ffd76c 35%,
+        #f2b632 60%,
+        #fff1a6 80%,
+        #c28c18 100%
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+
+    text-shadow:
+        0 0 10px rgba(255,230,140,.5),
+        0 0 20px rgba(255,215,100,.35),
+        2px 2px 6px rgba(80,50,0,.15);
+
+    letter-spacing:.03em;
+}
+
+.gold-glow{
+    animation:goldGlow 4s ease-in-out infinite;
+}
+
+@keyframes goldGlow{
+    0%,100%{
+        filter:brightness(1);
+    }
+    50%{
+        filter:brightness(1.2);
+    }
+}
+
 </style>
 
     </head>
@@ -225,13 +267,18 @@ opacity:.08;pointer-events:none;
                 </div>
 
                 <h1
-                    class="font-serif-elegant text-5xl md:text-6xl text-sage-900">
-                    Mi Confirmación
-                </h1>
+                    class="font-serif-elegant italic text-4xl md:text-5xl text-sage-900 leading-tight">
 
-                <h2 class="text-3xl md:text-4xl text-sage-800">
-                    Nahia Zelig
-                </h2>
+                    Mi Confirmación
+
+                    <br>
+
+                    <span
+                        class="gold-name gold-glow block text-7xl md:text-8xl not-italic pt-4">
+                        Nahia Zelig
+                    </span>
+
+                </h1>
 
                 <p class="italic text-sage-800">
                     14 de Junio de 2026
@@ -241,11 +288,6 @@ opacity:.08;pointer-events:none;
                     class="glass-button px-8 py-4 rounded-full text-sage-900 font-semibold text-lg hover:scale-105 transition-all duration-300">
                     ✨ Abrir Invitación ✨
                 </button>
-
-                <p class="text-xs text-sage-800 opacity-70">
-                    Toca para activar la música
-                </p>
-
             </div>
 
         </div>
@@ -337,6 +379,7 @@ opacity:.08;pointer-events:none;
                         y1="40" y2="40"></line>
                 </svg>
             </div>
+
             <!-- Header Text -->
             <div class="space-y-4">
                 <p class="text-sage-900 tracking-wider text-sm uppercase">Te
@@ -345,21 +388,51 @@ opacity:.08;pointer-events:none;
                     class="font-serif-elegant italic text-4xl md:text-5xl text-sage-900 leading-tight">
                     Mi Confirmación<br />
                     <span
-                        class="invitation-name text-5xl md:text-7xl not-italic font-semibold">Nahia
+                        class="invitation-name text-5xl md:text-7xl not-italic font-semibold gold-name gold-glow">Nahia
                         Zelig</span>
                 </h1>
                 <p class="text-sage-900 text-sm italic px-4 mt-4">
-                    "Celebrando este paso significativo de fe y crecimiento espiritual"
+                    "Jesús vive en mi corazón y hoy lo recibo con amor."
                 </p>
             </div>
-            <!-- Date & Time -->
             <div
                 class="text-sage-900 tracking-widest font-semibold text-lg py-4">
-                14 DE JUNIO DE 2026 09:00 AM
+                14 DE JUNIO DE 2026 <br /> 09:00 AM
             </div>
-            <div class="scroll-indicator">
-                <i class="fa-solid fa-chevron-down"></i>
+            <div class="space-y-5">
+
+                <p
+                    class="text-sage-800 uppercase tracking-[0.35em] text-xs md:text-sm">
+                    Con la bendición de Dios
+                </p>
+
+                <div class="w-24 h-px bg-sage-800/30 mx-auto"></div>
+
+                <a href="#fecha" class="scroll-indicator">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+
+                <p class="text-sage-900 text-lg md:text-xl tracking-wide">
+                    <span class="font-semibold">Edgar</span>
+                    &nbsp;y&nbsp;
+                    <span class="font-semibold">Paola</span>
+                </p>
+
+                <p
+                    class="font-serif-elegant text-xl md:text-2xl text-sage-900 italic">
+                    y mis padrinos
+                </p>
+
+                <p class="text-sage-900 text-lg md:text-xl tracking-wide">
+                    <span class="font-semibold">Eréndira</span>
+                    &nbsp;y&nbsp;
+                    <span class="font-semibold">Alfredo</span>
+                </p>
+
+                <div class="w-24 h-px bg-sage-800/30 mx-auto"></div>
+
             </div>
+
             <div class="mt-6">
                 <p
                     class="uppercase tracking-[0.25em] text-xs text-sage-800 mb-3">
